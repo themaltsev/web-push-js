@@ -26,14 +26,14 @@ export class CustomPush {
 
         this.title = typeof options.title !== "undefined" ? options.title : 'Maltsev CRM';
         this.text = typeof options.text !== 'undefined' ? options.text : '';
-        this.img = typeof options.img !== 'undefined' ? options.img : '/img/logo-bw.png';
+        this.icon = typeof options.icon !== 'undefined' ? options.icon : 'icon.png';
 
         navigator.serviceWorker.register('./sw.js')
             .then((registration) => {
                 Notification.requestPermission().then((result) => {
                     if (result === "granted") {
                         registration.showNotification(this.title, {
-                            icon: this.img,
+                            icon: this.icon,
                             body: this.text,
                         });
                     }
@@ -41,7 +41,7 @@ export class CustomPush {
                         this.showCustom({
                             title: this.title,
                             text: this.text,
-                            img: this.img,
+                            icon: this.icon,
                         })
                     }
                 });
@@ -53,7 +53,7 @@ export class CustomPush {
         let timeNow = new Date().toLocaleTimeString()
         this.title = options.title
         this.text = options.text
-        this.img = options.img
+        this.icon = options.icon
         this.sound = typeof options.sound == false ? false : true;
 
         if (document.querySelector('.push__item')) document.querySelector('.push__item').remove()
@@ -64,7 +64,7 @@ export class CustomPush {
         document.body.appendChild(push);
 
         push.innerHTML += `<div class="push__item__head">
-    <img draggable="false" class="push__item__icon" src="${this.img}"/>
+    <img draggable="false" class="push__item__icon" src="${this.icon}"/>
     <div class="push__item__logoname">MaltsevCRM</div>
     <div class="push__item__time">${timeNow}</div>
     <div class="push__item__exit"></div>
