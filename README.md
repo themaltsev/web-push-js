@@ -1,6 +1,8 @@
-Легкий плагин для пуш уведомлений 
-
+Легкий плагин для пуш уведомлений  
 Работает так: Если разрешены уведомления нативные то работают они, если отключены то работают кастомные
+
+A lightweight plugin for push notifications
+It works like this: If native notifications are allowed, then they work, if disabled, then custom ones work
 
 INSTALL npm i gsap
 
